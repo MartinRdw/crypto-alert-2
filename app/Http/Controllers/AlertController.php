@@ -23,11 +23,7 @@ class AlertController extends Controller
 
     public function index()
     {
-        $alerts = Alert::all();
-
-        return view('alerts.index', [
-            'alerts' => $alerts
-        ]);
+        return view('alerts.index');
     }
 
     public function store(Request $request)
@@ -40,6 +36,7 @@ class AlertController extends Controller
         ]);
 
         $alert = new Alert();
+        $alert->user_id = auth()->id();
         $alert->name = $request->get('name');
         $alert->symbol = strtoupper($request->get('symbol'));
         $alert->price = $request->get('price');

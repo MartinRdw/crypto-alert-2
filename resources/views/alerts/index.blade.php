@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="row">
-        @foreach($alerts as $alert)
+        @foreach(auth()->user()->alerts as $alert)
             <div class="w-100 shadow-sm mb-4 rounded px-4 py-3 d-flex justify-content-between align-items-center">
                 <p class="mb-0">{{ $alert->name }} sur le {{ $alert->symbol }}, quand {{ $alert->movement }} de {{ $alert->price }}</p>
                 <div class="d-flex">
