@@ -66,7 +66,6 @@ class AlertController extends Controller
     public function update(Alert $alert, Request $request)
     {
         $this->validate($request, [
-            'symbol' => 'string|required',
             'name' => 'string|required',
             'price' => 'numeric|required',
             'movement' => 'size:1|in:+,-|required'

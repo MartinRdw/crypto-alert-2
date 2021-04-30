@@ -2,7 +2,7 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <img width="80" class="mr-1" src="https://blockblog.fr/wp-content/uploads/2019/10/dogecoin-logo-290x300.png" alt="logo">
             </a>
         </x-slot>
 

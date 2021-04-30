@@ -1,17 +1,27 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
+@section('title')
+    Dashboard
+@endsection
+
+@section('content')
+    <div class="row">
+
+        @foreach($coins as $coin)
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 mb-4">
+                <div class="shadow px-4 py-3 rounded text-center">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="mb-0 text-truncate">{{ $coin['name'] }}</h5>
+                        <p class="mb-0" style="font-size: 0.8rem;">${{ $coin['current_price'] }}</p>
+                    </div>
+
+                    <div>
+                        <img width="60" src="{{ $coin['image'] }}">
+                    </div>
+
+                    <a href="{{ route('alerts.create', ['coin' => $coin['symbol']]) }}" class="mt-3 btn btn-primary w-100">Créer une alerte</a>
                 </div>
             </div>
-        </div>
+        @endforeach
     </div>
-</x-app-layout>
+@endsection
